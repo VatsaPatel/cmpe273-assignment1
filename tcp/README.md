@@ -1,9 +1,58 @@
-# Assignment 1 - Part A
+# Assignment 1 - Part A TCP
 
-You will be building a simple TCP server that can handle requests from multiple TCP clients. The given baseline implementation does not support handling connection from multiple clients.
+## Features
 
-## Requirements
+* Multithreaded Server
+* Support for multiple clients at same time.
+* Connection start and connection close detection with Client id.
 
-* Add handling connection from the multiple clients and the server must be kept running forever.
-* Print out the data received by the server along with client id.
-* Response all clients to the "pong" message.
+## Usage
+
+* TCP Server
+
+
+```
+python3 tcp_client.py [client id] [delay in seconds between messages] [number of 'ping' messages]
+```
+
+```
+python3 tcp_server.py
+Server started at port 5000.
+Connected Client:A.
+Received data:A:ping
+Connected Client:B.
+Received data:B:ping
+Received data:A:ping
+Received data:B:ping
+Received data:A:ping
+Received data:B:ping
+...
+```
+
+* Client A
+
+```
+python3 tcp_client.py A 10 3
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+```
+
+* Client B
+
+```
+python3 tcp_client.py B 10 5
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+Sending data:ping
+Recevied data:pong
+```
